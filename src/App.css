@@ -1,0 +1,243 @@
+/* ==========================================
+   CSS Variables & Color Palette
+   ========================================== */
+:root {
+  /* Brand Palette */
+  --primary: #8E1EA2;
+  --primary-hover: #761887;
+  --accent-1: #C654C3;
+  --accent-2: #ED96D7;
+  --accent-light: #FFC0DE;
+
+  /* Neutrals & UI Backgrounds */
+  --bg-main: #F4F5F9;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #FAF7FC;
+
+  /* Text Colors */
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --text-light: #FFFFFF;
+
+  /* Border & Dividers */
+  --border-color: #E5E7EB;
+  --border-radius-sm: 8px;
+  --border-radius-md: 14px;
+  --border-radius-lg: 20px;
+  --border-radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(142, 30, 162, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(142, 30, 162, 0.12);
+
+  /* Font */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ==========================================
+   Global Reset & Base Styles
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Container */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ==========================================
+   Typography & Headers
+   ========================================== */
+h1, h2, h3, h4, h5 {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+   Navbar & Header Components
+   ========================================== */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* ==========================================
+   Card Components
+   ========================================== */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius-sm);
+  background: var(--primary);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-accent-line {
+  height: 4px;
+  width: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================
+   Buttons & Actions
+   ========================================== */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius-pill);
+  padding: 0.65rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(198, 84, 195, 0.3);
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  opacity: 0.95;
+  transform: scale(1.02);
+}
+
+/* ==========================================
+   Resource List Items
+   ========================================== */
+.resource-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 0.5rem;
+  border-left: 4px solid var(--primary);
+}
+
+.resource-item .icon {
+  color: var(--primary);
+  margin-right: 0.75rem;
+}
+
+.download-icon {
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.download-icon:hover {
+  color: var(--primary);
+}
+
+/* Ratings */
+.rating-stars {
+  color: #FBBF24;
+  font-size: 0.85rem;
+}
+
+/* Footer Credits */
+.footer-text {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+}
+
+/* ==========================================
+   Responsive Grid & Layout
+   ========================================== */
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .app-layout {
+    grid-template-columns: 1fr 420px;
+  }
+}

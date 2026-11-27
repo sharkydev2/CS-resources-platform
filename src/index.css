@@ -1,0 +1,152 @@
+/* ==========================================
+   CSS Variables: Light (:root) & Dark ([data-theme="dark"])
+   ========================================== */
+:root {
+  color-scheme: light;
+
+  /* Brand Palette */
+  --primary: #8E1EA2;
+  --primary-hover: #761887;
+  --accent-1: #C654C3;
+  --accent-2: #ED96D7;
+  --accent-light: #FFC0DE;
+  --star-color: #D97706;
+
+  /* Surfaces (Translucent glass over background layers) */
+  --surface-outer: #FAF7FC;
+  --surface-box: rgba(255, 255, 255, 0.8);
+  --surface-section: linear-gradient(135deg, rgba(250, 244, 252, 0.78) 0%, rgba(243, 230, 247, 0.72) 100%);
+  --surface-card: rgba(255, 255, 255, 0.9);
+  --surface-hero: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(250, 242, 255, 0.62) 60%, rgba(255, 255, 255, 0.52) 100%);
+  --surface-tablist: rgba(243, 230, 247, 0.9);
+  --surface-tab-active: #731885;
+  --surface-advice-btn: rgba(250, 244, 252, 0.95);
+  --surface-advice-btn-hover: #731885;
+  --surface-modal: #FFFFFF;
+  --surface-toggle: #F3E6F7;
+  --surface-toggle-hover: #731885;
+  --surface-eyebrow: rgba(142, 30, 162, 0.12);
+  --surface-badge: #731885;
+  --surface-badge-hover: #8E1EA2;
+  --surface-cta: linear-gradient(135deg, #731885, #A835BE);
+  --surface-cta-hover: linear-gradient(135deg, #5B136B, #731885);
+
+  /* Text Colors (WCAG AA+ contrast) */
+  --text-heading: #5B136B;
+  --text-body: #1F2937;
+  --text-muted-ui: #4B5563;
+  --text-modal: #374151;
+  --text-tab: #5B136B;
+  --text-tab-active: #FFFFFF;
+  --text-advice-btn: #5B136B;
+  --text-advice-btn-hover: #FFFFFF;
+  --text-toggle: #731885;
+  --text-toggle-hover: #FFFFFF;
+  --text-eyebrow: #5B136B;
+  --text-accent-link: #6D1480;
+
+  /* Borders, Shadows & Focus */
+  --border-box: rgba(255, 255, 255, 0.8);
+  --border-section: rgba(115, 24, 133, 0.14);
+  --border-card: rgba(115, 24, 133, 0.14);
+  --border-advice-btn: rgba(115, 24, 133, 0.3);
+  --border-toggle: rgba(115, 24, 133, 0.3);
+  --border-footer: rgba(115, 24, 133, 0.2);
+  --shadow-box: 0 8px 30px rgba(91, 19, 107, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 20px rgba(91, 19, 107, 0.16);
+  --shadow-cta: 0 4px 14px rgba(115, 24, 133, 0.32);
+  --shadow-toggle: 0 2px 8px rgba(115, 24, 133, 0.12);
+  --focus-ring: #8E1EA2;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --star-color: #FBBF24;
+
+  /* Surfaces */
+  --surface-outer: #12051C;
+  --surface-box: rgba(20, 7, 36, 0.8);
+  --surface-section: linear-gradient(135deg, rgba(32, 12, 54, 0.72) 0%, rgba(21, 7, 34, 0.66) 100%);
+  --surface-card: rgba(39, 16, 61, 0.84);
+  --surface-hero: linear-gradient(135deg, rgba(28, 10, 48, 0.82) 0%, rgba(24, 8, 42, 0.64) 60%, rgba(45, 16, 72, 0.48) 100%);
+  --surface-tablist: rgba(20, 7, 36, 0.88);
+  --surface-tab-active: #8E1EA2;
+  --surface-advice-btn: rgba(26, 11, 46, 0.9);
+  --surface-advice-btn-hover: #8E1EA2;
+  --surface-modal: #1A0B2E;
+  --surface-toggle: #2D1242;
+  --surface-toggle-hover: #731885;
+  --surface-eyebrow: rgba(237, 150, 215, 0.16);
+  --surface-badge: #731885;
+  --surface-badge-hover: #9C27B0;
+  --surface-cta: linear-gradient(135deg, #7B1FA2, #B03CC9);
+  --surface-cta-hover: linear-gradient(135deg, #8E1EA2, #C654C3);
+
+  /* Text Colors (WCAG AA+ contrast on dark surfaces) */
+  --text-heading: #F5B8E6;
+  --text-body: #F8F1FC;
+  --text-muted-ui: #E2CEF0;
+  --text-modal: #EFE4F7;
+  --text-tab: #EFE4F7;
+  --text-tab-active: #FFFFFF;
+  --text-advice-btn: #F5B8E6;
+  --text-advice-btn-hover: #FFFFFF;
+  --text-toggle: #F5B8E6;
+  --text-toggle-hover: #FFFFFF;
+  --text-eyebrow: #F5B8E6;
+  --text-accent-link: #F5B8E6;
+
+  /* Borders, Shadows & Focus */
+  --border-box: rgba(168, 53, 190, 0.3);
+  --border-section: rgba(168, 53, 190, 0.24);
+  --border-card: rgba(168, 53, 190, 0.3);
+  --border-advice-btn: rgba(168, 53, 190, 0.45);
+  --border-toggle: #8E1EA2;
+  --border-footer: rgba(168, 53, 190, 0.28);
+  --shadow-box: 0 10px 32px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 8px 22px rgba(142, 30, 162, 0.42);
+  --shadow-cta: 0 4px 14px rgba(142, 30, 162, 0.4);
+  --shadow-toggle: 0 0 10px rgba(115, 24, 133, 0.35);
+  --focus-ring: #F5B8E6;
+}
+
+/* ==========================================
+   Global Reset & Base Styles
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--surface-outer);
+  color: var(--text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
+
+/* Hides the Netlify Drop default badge */
+iframe#netlify-widget,
+.netlify-badge,
+a[href*="netlify.com/drop"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

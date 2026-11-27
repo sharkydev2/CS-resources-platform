@@ -1,0 +1,408 @@
+/* ==========================================
+   Stacked Background Layers (Opacity Crossfade)
+   ========================================== */
+.theme-bg-layers {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.theme-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.45s ease;
+}
+
+.theme-bg-light {
+  background-image: url('../../pics/white mode background.jpg');
+  opacity: 1;
+}
+
+.theme-bg-dark {
+  background-image: url('../../pics/dark mode background.jpg');
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-bg-light {
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-bg-dark {
+  opacity: 1;
+}
+
+/* ==========================================
+   Base Layout Wrapper
+   ========================================== */
+.app-outer-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem 0.75rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-family);
+  color: var(--text-body);
+  transition: color 0.4s ease;
+}
+
+/* Shared Accessible Focus Ring */
+.app-outer-wrapper a:focus-visible,
+.app-outer-wrapper button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   Top Bar & Animated Theme Toggle
+   ========================================== */
+.app-top-bar {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.app-main-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.01em;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+[data-theme="dark"] .app-main-title {
+  text-shadow: 0 0 12px rgba(168, 53, 190, 0.4);
+}
+
+.btn-theme-toggle {
+  min-width: 48px;
+  min-height: 48px;
+  background: var(--surface-toggle);
+  color: var(--text-toggle);
+  border: 1px solid var(--border-toggle);
+  box-shadow: var(--shadow-toggle);
+  padding: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+}
+
+.btn-theme-toggle:hover {
+  background: var(--surface-toggle-hover);
+  color: var(--text-toggle-hover);
+  border-color: var(--border-toggle);
+}
+
+.theme-icon-stack {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-icon {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+.theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-icon-moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.4);
+}
+
+[data-theme="dark"] .theme-icon-sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.4);
+}
+
+[data-theme="dark"] .theme-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ==========================================
+   Lightweight Mobile-First Hero Section
+   ========================================== */
+.hero-section {
+  width: 100%;
+  max-width: 1200px;
+  background: var(--surface-hero);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-box);
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-box);
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-eyebrow);
+  background: var(--surface-eyebrow);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 4vw, 2.35rem);
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 0.75rem;
+  transition: color 0.4s ease;
+}
+
+.hero-description {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-muted-ui);
+  margin-bottom: 1.35rem;
+  transition: color 0.4s ease;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: var(--surface-cta);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-cta);
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, transform 0.15s ease;
+}
+
+.hero-cta-btn:hover {
+  background: var(--surface-cta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(115, 24, 133, 0.42);
+}
+
+.app-content-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ==========================================
+   ADVICE MODAL POPUP STYLES
+   ========================================== */
+.advice-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.advice-modal-content {
+  background: var(--surface-modal);
+  border: 1px solid var(--border-box);
+  color: var(--text-body);
+  padding: 1.5rem;
+  border-radius: 16px;
+  max-width: 650px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  animation: modalPop 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.advice-semester-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  background: var(--surface-eyebrow);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  margin-bottom: 0.5rem;
+}
+
+.advice-modal-content h2 {
+  color: var(--text-heading);
+  margin-bottom: 0.5rem;
+}
+
+.advice-big-paragraph {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  white-space: pre-line;
+  color: var(--text-modal);
+}
+
+.advice-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.btn-close-modal {
+  min-width: 48px;
+  min-height: 48px;
+  background: var(--surface-badge);
+  color: #FFFFFF;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.btn-close-modal:hover {
+  background: var(--surface-badge-hover);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================
+   FOOTER STYLES
+   ========================================== */
+.app-footer {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2.5rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-top: 1px solid var(--border-footer);
+  font-size: 0.9rem;
+  color: var(--text-muted-ui);
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.app-footer p {
+  color: inherit;
+}
+
+.app-footer strong,
+.footer-contact a {
+  color: var(--text-accent-link);
+  transition: color 0.4s ease;
+}
+
+.footer-contact {
+  margin-top: 0.35rem;
+}
+
+.telegram-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.25rem 0.75rem;
+  text-decoration: none;
+}
+
+.telegram-icon {
+  color: #d611dd;
+  font-weight: 600;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   Tablet & Desktop Adjustments (Mobile-First)
+   ========================================== */
+@media (min-width: 768px) {
+  .app-outer-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .app-main-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-section {
+    padding: 2.5rem 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .advice-modal-content {
+    padding: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-bg-layer,
+  .app-outer-wrapper,
+  .app-main-title,
+  .btn-theme-toggle,
+  .theme-icon,
+  .hero-section,
+  .hero-eyebrow,
+  .hero-title,
+  .hero-description,
+  .hero-cta-btn,
+  .advice-modal-content,
+  .btn-close-modal,
+  .app-footer,
+  .app-footer strong,
+  .footer-contact a {
+    transition: none;
+    animation: none;
+  }
+}
